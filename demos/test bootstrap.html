@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8' />
+<link href='../fullcalendar.min.css' rel='stylesheet' />
+<link href='../fullcalendar.print.min.css' rel='stylesheet' media='print' />
+<script src='../lib/moment.min.js'></script>
+<script src='../lib/jquery.min.js'></script>
+<script src='../fullcalendar.min.js'></script>
+<script src='../locale-all.js'></script>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+<script>
+
+  $(document).ready(function() {
+    var initialLocaleCode = 'fr';
+
+    $('#calendar').fullCalendar({
+      header: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'month,agendaWeek,agendaDay,listWeek'
+      },
+      defaultDate: new Date(),
+      locale: initialLocaleCode,
+      buttonIcons: true, // show the prev/next text
+      weekNumbers: true,
+      navLinks: true, // can click day/week names to navigate views
+      editable: true,
+      eventLimit: true, // allow "more" link when too many events
+      events: [
+        {
+          title: 'All Day Event',
+          start: '2019-02-01'
+        },
+        {
+          title: 'Long Event',
+          start: '2019-02-07',
+          end: '2019-02-10'
+        },
+        {
+          id: 999,
+          title: 'Repeating Event',
+          start: '2019-02-09T16:00:00'
+        },
+        {
+          id: 999,
+          title: 'Repeating Event',
+          start: '2019-02-16T16:00:00'
+        },
+        {
+          title: 'Conference',
+          start: '2019-02-11',
+          end: '2019-02-13'
+        },
+        {
+          title: 'Meeting',
+          start: '2019-02-12T10:30:00',
+          end: '2019-02-12T12:30:00'
+        },
+        {
+          title: 'Lunch',
+          start: '2019-02-12T12:00:00'
+        },
+        {
+          title: 'Meeting',
+          start: '2019-02-12T14:30:00'
+        },
+        {
+          title: 'Happy Hour',
+          start: '2019-02-12T17:30:00',
+		  color: '#443453',
+		  editable: false
+        },
+        {
+          title: 'Dinner',
+          start: '2019-02-12T20:00:00'
+        },
+        {
+          title: 'Birthday Party',
+          start: '2019-02-13T07:00:00'
+        },
+      ],
+		eventTextColor: '#ffffff'
+    });
+
+  });
+
+</script>
+
+<script>
+    $(document).ready(function() {
+        $('a[href="' + this.location.pathname + '"]').parent().addClass('active');
+    });
+</script>
+<style>
+
+	body {
+		margin: 0;
+		padding: 0;
+		font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+		font-size: 14px;
+	}
+
+	#top {
+		background: #eee;
+		border-bottom: 1px solid #ddd;
+		padding: 0 10px;
+		line-height: 40px;
+		font-size: 12px;
+	}
+
+	#calendar {
+		//max-width: 900px;
+		margin: 40px auto;
+		padding: 0 10px;
+	}
+  
+	/* Navbar */
+
+	.navbar-custom {
+		background-color: #50576B;
+	}
+
+	/* change the brand and text color */
+
+	.navbar-custom .navbar-brand,
+	.navbar-custom .navbar-text {
+		text-decoration: none;
+		color: #fff;
+	}
+
+	/* change the link color */
+
+	.navbar-custom .navbar-nav .nav-link {
+		text-decoration: none;
+		color: #fff;
+	}
+
+	/* change the color of active or hovered links */
+
+	.navbar-custom .nav-item.active .nav-link,
+	.navbar-custom {
+		text-decoration: none;
+		color: #fff;
+	}
+	.nav-item .nav-link:hover {
+		text-decoration: none;
+		color: #b1b4bd;
+	}
+
+	/* for dropdown only - change the color of dropdown */
+
+	.navbar-custom .dropdown-menu {
+		background-color: #777c8c;
+	}
+
+	.navbar-custom .dropdown-item {
+		text-decoration: none;
+		color: #fff;
+	}
+
+	.navbar-custom .dropdown-item:hover,
+	.navbar-custom .dropdown-item:focus {
+		text-decoration: none;
+		color: #b1b4bd;
+		background-color: #777c8c;
+	}
+
+	.navbar-header .navbar-toggler {
+		border: 0;
+	}
+
+	.navbar-toggler-icon {
+		color: #fff;
+	}
+
+	.navbar-toggler-icon {
+		background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+	}
+  
+</style>
+</head>
+<body>
+
+	<!-- MENU -->
+	<nav class="navbar navbar-custom navbar-expand-md" id ="navbarcustom">
+	   <a class="navbar-brand" href="#">Nom Appli</a>
+	   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbar-custom" aria-expanded="false" aria-label="Toggle navigation">
+	   <span class="navbar-toggler-icon"></span>
+	   </button>
+	   <div class="collapse navbar-collapse" id="navbarCollapse">
+		  <ul class="navbar-nav mx-auto">
+			 <li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Menu 1</a>
+				<div class="dropdown-menu dropdown-menu-right">
+				   <a class="dropdown-item" href="#">Sous menu 1</a>
+				   <a class="dropdown-item" href="#">Sous menu 2</a>
+				</div>
+			 </li>
+			 <li class="nav-item">
+				<a class="nav-link" href="#">Menu 2</a>
+			 </li>
+			 <li class="nav-item">
+				<a class="nav-link" href="#">Menu3</a>
+			 </li>
+		  </ul>
+		  <ul class="navbar-nav">
+			 <li class="nav-item">
+				<a class="nav-link" href="#">Profil</a>
+			 </li>
+			 <li class="nav-item">
+				<a class="nav-link" href="#">Déconnexion</a>
+			 </li>
+		  </ul>
+	   </div>
+	</nav>
+	<!-- END MENU -->
+	
+	
+	<!-- CALENDAR -->
+	<div id='calendar'></div>
+	<!-- END CALENDAR -->
+
+  
+  <!--
+		Palette de couleur possible :
+			#F05D5E
+			#2A324B
+			#0F7173
+			#223843
+			#EFF1F3
+		Voir le fichier selectable.html pour fonctionnalité : clic sur un jour = popup qui s'ouvre pour créer event
+		Voir pour changer le design du jour actuel ? (peut etre enlever la couleur de fond et entourer de couleur le num du jour
+  -->
+  <script>
+	$(document).ready(function() {
+		var hnav = ($("#navbarcustom").height());
+		var hwin = (document.body.clientHeight);
+		var hcal = hwin - hnav;
+		var test = Math.trunc(2*hwin/3);
+		alert(hcal);
+		alert(test);
+		$('#calendar').fullCalendar('option', 'height', test);
+    });
+  </script>
+  
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  
+</body>
+</html>
